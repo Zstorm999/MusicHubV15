@@ -34,9 +34,9 @@ public class XMLTool{
     private static XMLLoader loader;
     private static XMLSaver saver;
     
-    public static final String ALBUMSFILEPATH= "./files/albums.xml";
-    public static final String ELEMENTSFILEPATH= "./files/elements.xml";
-    public static final String PLAYLISTSFILEPATH= "./files/playlists.xml";
+    public static final String ALBUMSFILEPATH= "./musicHubServer/files/albums.xml";
+    public static final String ELEMENTSFILEPATH= "./musicHubServer/files/elements.xml";
+    public static final String PLAYLISTSFILEPATH= "./musicHubServer/files/playlists.xml";
     
     private XMLTool(){
         try{
@@ -50,13 +50,13 @@ public class XMLTool{
         XMLTool.saver= new XMLSaver(this);
     }
     
-    public static XMLTool getInstance(){return XMLTool.singleton; }
+    public static XMLTool getInstance(){ return XMLTool.singleton; }
     
     public XMLLoader getLoaderTool(){return XMLTool.loader; }
     public XMLSaver getSaverTool(){return XMLTool.saver; }
     
     /*package private*/ NodeList parseXMLFile (String filePath) throws XMLReadException, FileNotFoundException{
-        NodeList elementNodes = null;
+        NodeList elementNodes;
         try {
             org.w3c.dom.Element root= XMLTool.docBuilder.parse(new File(filePath)).getDocumentElement();
             elementNodes= root.getChildNodes();
