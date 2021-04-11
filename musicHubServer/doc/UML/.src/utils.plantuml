@@ -1,0 +1,122 @@
+@startuml Utils
+
+  namespace utils {
+    class utils.Parsing {
+        {static} + split()
+    }
+  }
+  
+
+  namespace utils {
+    class utils.TimeFormat {
+        {static} + secToString()
+        {static} - format2Digits()
+    }
+  }
+  
+
+  namespace utils {
+    namespace XML {
+      class utils.XML.XMLLoader {
+          + load()
+
+          - loadAlbums()
+          - loadElements()
+          - loadPlaylists()
+      }
+    }
+  }
+  
+
+  namespace utils {
+    namespace XML {
+      class utils.XML.XMLSaver {
+          + saveAlbums()
+          + saveElements()
+          + savePlaylist()
+      }
+    }
+  }
+  
+
+  namespace utils {
+    namespace XML {
+      abstract class utils.XML.XMLSubtool {
+          + XMLSubtool()
+      }
+    }
+  }
+  
+
+  namespace utils {
+    namespace XML {
+      class utils.XML.XMLTool << singleton >>{
+          {static} + ALBUMSFILEPATH : String
+          {static} + ELEMENTSFILEPATH : String
+          {static} + PLAYLISTSFILEPATH : String
+          {static} - docBuilder : DocumentBuilder
+          {static} - loader : XMLLoader
+          {static} - saver : XMLSaver
+          {static} - singleton : XMLTool
+          {static} - transformer : Transformer
+          {static} + getInstance()
+          + getLoaderTool()
+          + getSaverTool()
+          ~ createXMLDocument()
+          ~ createXMLFile()
+          ~ parseXMLFile()
+          - XMLTool()
+      }
+    }
+  }
+  
+
+  utils.XML.XMLLoader -up-|> utils.XML.XMLSubtool
+  utils.XML.XMLSaver -up-|> utils.XML.XMLSubtool
+  utils.XML.XMLSubtool o-- utils.XML.XMLTool : generalTool
+
+namespace utils {
+    namespace error {
+      class utils.error.ForceQuitException {
+          + ForceQuitException()
+      }
+    }
+  }
+  
+
+  namespace utils {
+    namespace error {
+      class utils.error.NoElementFoundException {
+          + NoElementFoundException()
+      }
+    }
+  }
+  
+
+  namespace utils {
+    namespace error {
+      class utils.error.TooManyMatchingElementsException {
+          + TooManyMatchingElementsException()
+      }
+    }
+  }
+  
+
+  namespace utils {
+    namespace error {
+      class utils.error.XMLReadException {
+          + XMLReadException()
+      }
+    }
+  }
+  
+
+  namespace utils {
+    namespace error {
+      class utils.error.XMLWriteException {
+          + XMLWriteException()
+      }
+    }
+  }
+
+@enduml

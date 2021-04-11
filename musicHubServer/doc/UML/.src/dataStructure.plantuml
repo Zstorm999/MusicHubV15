@@ -1,0 +1,172 @@
+@startuml data structure
+
+  namespace business.dataStruct {
+    namespace elements {
+      class business.dataStruct.elements.Album {
+          {static} + DATEFORMAT : String
+          - artist : String
+          - launchDate : Date
+          - songs : ArrayList<Song>
+          + Album()
+          + addSong()
+          + compareTo()
+          + getArtist()
+          + getLaunchDate()
+          + getLength()
+          + getSongs()
+          + toString()
+      }
+    }
+  }
+  
+
+  namespace business.dataStruct {
+    namespace elements {
+      class business.dataStruct.elements.AudioBook {
+          - author : String
+          + AudioBook()
+          + compareTo()
+          + getAuthor()
+          + getCategory()
+          + getLanguage()
+          + toString()
+      }
+    }
+  }
+  
+
+  namespace business.dataStruct {
+    namespace elements {
+      class business.dataStruct.elements.Playlist {
+          - musicalElements : ArrayList<MusicalElement>
+          + Playlist()
+          + addElement()
+          + getElements()
+          + toString()
+      }
+    }
+  }
+  
+
+  namespace business.dataStruct {
+    namespace elements {
+      class business.dataStruct.elements.Song {
+          - artist : String
+          + Song()
+          + compareTo()
+          + getArtist()
+          + getGenre()
+          + toString()
+      }
+    }
+  }
+  
+
+  namespace business.dataStruct {
+    namespace enums {
+      enum Category {
+        Documentary
+        Novel
+        Speech
+        Theater
+        Youth
+      }
+    }
+  }
+  
+
+  namespace business.dataStruct {
+    namespace enums {
+      enum Genre {
+        Classic
+        HipHop
+        Jazz
+        Pop
+        Rap
+        Rock
+      }
+    }
+  }
+  
+
+  namespace business.dataStruct {
+    namespace enums {
+      enum Language {
+        English
+        French
+        German
+        Italian
+        Spanish
+      }
+    }
+  }
+
+  business.dataStruct.elements.Album .down.|> java.lang.Comparable
+  business.dataStruct.elements.Album -up-|> business.dataStruct.Element
+  business.dataStruct.elements.AudioBook .down.|> java.lang.Comparable
+  business.dataStruct.elements.AudioBook -up-|> business.dataStruct.MusicalElement
+  business.dataStruct.elements.AudioBook *-- business.dataStruct.enums.Category : category
+  business.dataStruct.elements.AudioBook *-- business.dataStruct.enums.Language : language
+  business.dataStruct.elements.Playlist -up-|> business.dataStruct.Element
+  business.dataStruct.elements.Song .down.|> java.lang.Comparable
+  business.dataStruct.elements.Song -up-|> business.dataStruct.MusicalElement
+  business.dataStruct.elements.Song *-- business.dataStruct.enums.Genre : genre
+
+
+  namespace business.dataStruct {
+    class business.dataStruct.DirectAccess {
+        + DirectAccess()
+        + addAlbum()
+        + addAlbum()
+        + addAudioBook()
+        + addAudioBook()
+        + addPlaylist()
+        + addPlaylist()
+        + addSong()
+        + addSong()
+        + addSongToAlbum()
+        + dellPlaylist()
+        + getAlbum()
+        + getAlbums()
+        + getAudioBooks()
+        + getMatchingAlbum()
+        + getPlaylists()
+        + getSongs()
+        - generateId()
+        - lookForIdIn()
+        - lookForIn()
+        - lookForTitleIn()
+    }
+  }
+
+  business.dataStruct.DirectAccess o-- business.dataStruct.elements.Song
+  business.dataStruct.DirectAccess o-- business.dataStruct.elements.AudioBook
+  business.dataStruct.DirectAccess o-- business.dataStruct.elements.Playlist
+  business.dataStruct.DirectAccess o-- business.dataStruct.elements.Album
+
+  namespace business.dataStruct {
+    abstract class business.dataStruct.Element {
+        # id : int
+        # title : String
+        + Element()
+        + getId()
+        + getTitle()
+    }
+  }
+  
+
+  namespace business.dataStruct {
+    abstract class business.dataStruct.MusicalElement {
+        # content : String
+        # length : int
+        + MusicalElement()
+        + getContent()
+        + getLength()
+    }
+  }
+  
+
+  business.dataStruct.MusicalElement -up-|> business.dataStruct.Element
+
+
+@enduml

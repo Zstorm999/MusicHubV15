@@ -1,0 +1,57 @@
+@startuml UI
+  namespace business.UI {
+    class business.UI.CLI {
+        - inputRead : Scanner
+
+        + run()
+    }
+  }
+
+
+  namespace business.UI {
+    abstract class business.UI.Command {
+        + attempt(args String, accessToDB DirectAccess):String
+        {abstract} # doStuff(args String, accessToDB DirectAccess):String
+
+        {abstract} # description():String
+        {abstract} # taskParam():String
+    }
+  }
+
+  namespace business.UI.commands{
+    class CmdHelp
+    class CmdAddSong
+    class CmdAddAudioBook
+    class CmdAddAlbum
+    class CmdAddPlaylist
+    class CmdAppendToAlbum
+    class CmdListSongs
+    class CmdListSongsOrdered
+    class CmdListAudioBooks
+    class CmdListAlbums
+    class CmdListPlaylists
+    class CmdDeletePlaylist
+    class CmdSave
+    class CmdQuit
+  }
+
+  business.UI.Command <|-down- business.UI.commands
+
+  business.UI.CLI *-- business.UI.commands.CmdHelp
+  business.UI.commands.CmdHelp *-left- business.UI.commands.CmdAddSong
+  business.UI.commands.CmdAddSong *-left- business.UI.commands.CmdAddAudioBook
+  business.UI.commands.CmdAddAudioBook *-down- business.UI.commands.CmdAddAlbum
+  business.UI.commands.CmdAddAlbum *-right- business.UI.commands.CmdAddPlaylist
+  business.UI.commands.CmdAddPlaylist *-right- business.UI.commands.CmdAppendToAlbum
+  business.UI.commands.CmdAppendToAlbum *-down- business.UI.commands.CmdListSongs
+  business.UI.commands.CmdListSongs *-left- business.UI.commands.CmdListSongsOrdered
+  business.UI.commands.CmdListSongsOrdered *-left- business.UI.commands.CmdListAudioBooks
+  business.UI.commands.CmdListAudioBooks *-down- business.UI.commands.CmdListAlbums
+  business.UI.commands.CmdListAlbums *-right- business.UI.commands.CmdListPlaylists
+  business.UI.commands.CmdListPlaylists *-right- business.UI.commands.CmdDeletePlaylist
+  business.UI.commands.CmdDeletePlaylist *-down- business.UI.commands.CmdSave
+  business.UI.commands.CmdSave *-left- business.UI.commands.CmdQuit
+
+  business.UI.CLI *-- business.dataStruct.DirectAccess : dataAccess
+  business.UI.Command o-- business.UI.Command : nextCommand
+@enduml

@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<elements>
+    <songs>
+        <song>
+            <id>0</id>
+            <title>Flocon de Neige</title>
+            <length>382</length>
+            <content>Flocon_de_Neige.mp3</content>
+            <artist>Worakls</artist>
+            <genre>Classic</genre>
+        </song>
+        <song>
+            <id>1</id>
+            <title>Я люблю твой запах</title>
+            <length>137</length>
+            <content>1nwh6zQI.mp3</content>
+            <artist>Липа</artist>
+            <genre>Rap</genre>
+        </song>
+        <song>
+            <id>2</id>
+            <title>La Parisienne</title>
+            <length>409</length>
+            <content>la-parisienne.wav</content>
+            <artist>Worakls</artist>
+            <genre>Classic</genre>
+        </song>
+        <song>
+            <id>3</id>
+            <title>Nocturne</title>
+            <length>549</length>
+            <content>[Worakls] nocturne.mp3</content>
+            <artist>Worakls</artist>
+            <genre>Pop</genre>
+        </song>
+        <song>
+            <id>4</id>
+            <title>Goliath</title>
+            <length>249</length>
+            <content>Woodkid - Goliath _5tEfYvY3bAg.rip.mp3</content>
+            <artist>Woodkid</artist>
+            <genre>Pop</genre>
+        </song>
+        <song>
+            <id>5</id>
+            <title>Inner tale</title>
+            <length>259</length>
+            <content>Inner_Tale.mp3</content>
+            <artist>Worakls</artist>
+            <genre>Classic</genre>
+        </song>
+        <song>
+            <id>6</id>
+            <title>Тюльпаны</title>
+            <length>188</length>
+            <content>Тюльпаны(песня).mp3</content>
+            <artist>Липа</artist>
+            <genre>Pop</genre>
+        </song>
+        <song>
+            <id>7</id>
+            <title>мокрые кроссы</title>
+            <length>200</length>
+            <content>мокрые_кроссы.mp3</content>
+            <artist>Тима Белорусских</artist>
+            <genre>HipHop</genre>
+        </song>
+        <song>
+            <id>8</id>
+            <title>Привычка убегать</title>
+            <length>200</length>
+            <content>7uOgGmA-Vpo.mp3</content>
+            <artist>Тима Белорусских</artist>
+            <genre>Rap</genre>
+        </song>
+        <song>
+            <id>9</id>
+            <title>EM SẼ LUÔN</title>
+            <length>243</length>
+            <content>EMSeLUoN.mp3</content>
+            <artist>Trang</artist>
+            <genre>Jazz</genre>
+        </song>
+        <song>
+            <id>10</id>
+            <title>TA MƠ THẤY NHAU</title>
+            <length>294</length>
+            <content>ta mơ thấy nhay</content>
+            <artist>Trang</artist>
+            <genre>Jazz</genre>
+        </song>
+        <song>
+            <id>11</id>
+            <title>ĐỪNG HÁT VỀ CƠN MƯA</title>
+            <length>216</length>
+            <content>TRANG _ ĐỪNG HÁT VỀ CƠN MƯA (ft. MADIHU &amp; Mạc Mai Sương).wav</content>
+            <artist>Trang</artist>
+            <genre>Pop</genre>
+        </song>
+        <song>
+            <id>12</id>
+            <title>Free tibet</title>
+            <length>360</length>
+            <content>frreeee.mp3</content>
+            <artist>Hilight Trib</artist>
+            <genre>Pop</genre>
+        </song>
+        <song>
+            <id>18</id>
+            <title>I don't wanna cry</title>
+            <length>185</length>
+            <content>IDON'TWANNACRY.mp3</content>
+            <artist>After Hours</artist>
+            <genre>Pop</genre>
+        </song>
+        <song>
+            <id>19</id>
+            <title>Black milk</title>
+            <length>381</length>
+            <content>massiveattack-black_milk-HQCrack_podRiper3</content>
+            <artist>Massive attack</artist>
+            <genre>Pop</genre>
+        </song>
+        <song>
+            <id>20</id>
+            <title>Everybody wants to be famous</title>
+            <length>196</length>
+            <content>5FA40CD20_superorganism.mp3</content>
+            <artist>Superorganism</artist>
+            <genre>Pop</genre>
+        </song>
+        <song>
+            <id>21</id>
+            <title>Spirits' Lament</title>
+            <length>463</length>
+            <content>The spirits' lament.mp3</content>
+            <artist>Marine Cottarel</artist>
+            <genre>Classic</genre>
+        </song>
+        <song>
+            <id>22</id>
+            <title>Spirits' Lament</title>
+            <length>77</length>
+            <content>TheLegendOfZelda_soundtrack_13.mp3</content>
+            <artist>Toru Minegishi</artist>
+            <genre>Classic</genre>
+        </song>
+        <song>
+            <id>24</id>
+            <title>Mother bury your sons</title>
+            <length>322</length>
+            <content>mother-bury-your-sons.mp3</content>
+            <artist>Me and that man</artist>
+            <genre>Rock</genre>
+        </song>
+        <song>
+            <id>25</id>
+            <title>Lemon glow</title>
+            <length>245</length>
+            <content>BEACH-HOUSE--LEMON-GLOW.mp3</content>
+            <artist>Beach house</artist>
+            <genre>Pop</genre>
+        </song>
+        <song>
+            <id>26</id>
+            <title>Winter's lament</title>
+            <length>170</length>
+            <content>Ersdvvcx.pk.mp3</content>
+            <artist>Rival consoles</artist>
+            <genre>Jazz</genre>
+        </song>
+        <song>
+            <id>27</id>
+            <title>Them is us</title>
+            <length>347</length>
+            <content>not_winter's_lament.mp3</content>
+            <artist>Rival consoles</artist>
+            <genre>Jazz</genre>
+        </song>
+        <song>
+            <id>28</id>
+            <title>Impending imperative change</title>
+            <length>95</length>
+            <content>imp-.mp3</content>
+            <artist>David Allred</artist>
+            <genre>Pop</genre>
+        </song>
+    </songs>
+    <audioBooks>
+        <audioBook>
+            <id>15</id>
+            <title>Nothing ever dies - Memory of War</title>
+            <length>56233</length>
+            <content>On war and memories.mp3</content>
+            <author>Viet thanh nguyen</author>
+            <category>Documentary</category>
+            <language>English</language>
+        </audioBook>
+        <audioBook>
+            <id>16</id>
+            <title>Startup Vietnam</title>
+            <length>29523</length>
+            <content>startupsocialistrepublic.wav</content>
+            <author>Andrew P.Rowan</author>
+            <category>Documentary</category>
+            <language>English</language>
+        </audioBook>
+        <audioBook>
+            <id>23</id>
+            <title>Die Verwandlung</title>
+            <length>18255</length>
+            <content>Die Verwandlung - Franz Kafka.mp3</content>
+            <author>Franz Kafka</author>
+            <category>Novel</category>
+            <language>German</language>
+        </audioBook>
+    </audioBooks>
+</elements>

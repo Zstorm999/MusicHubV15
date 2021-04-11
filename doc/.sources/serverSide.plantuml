@@ -1,0 +1,423 @@
+@startuml Overview server side
+
+  namespace main #FF99AA{
+    class main.Main {
+        {static} + main()
+    }
+    note right of Main
+      instanciate every parts of the program structure
+    end note
+  }
+
+  namespace business.UI{
+    class business.UI.CLI #C0F0A0{
+      - inputRead : Scanner
+
+      - submitResult(text String)
+      - obtainImput(): String
+    }
+  }
+
+  business.UI.CLI --|> business.UI.TextInterface
+
+
+  namespace business.UI {
+    abstract class business.UI.Command {
+        + attempt(args String, accessToDB DirectAccess):String
+        {abstract} # doStuff(args String, accessToDB DirectAccess):String
+
+        {abstract} # description():String
+        {abstract} # taskParam():String
+    }
+
+    abstract class TextInterface{
+      - abstract submitResult(text String)
+      - abstract obtainImput(): String
+      + run()
+    }
+    note right of TextInterface
+      is a rework of the old CLI
+    end note
+  }
+
+
+  namespace business.networkInterface #E0FFE0{
+    abstract class NetworkInterface #C0F0A0{
+      - port: int
+      + connect()
+    }
+    note left of NetworkInterface::connect
+      I still don't know what will actualy be usefull
+    end note
+
+    class API #C0F0A0{
+      - submitResult(text String)
+      - obtainImput(): String
+    }
+    note right of API
+      is basicaly a CLI but
+      with different IOs
+    end note
+
+    class ContentBrodcast #C0F0A0{
+      + brodcast(filePath String)
+    }
+
+    class FileTransfer #C0F0A0{
+      - saveFile(file File)
+    }
+
+
+    API --|> NetworkInterface
+    ContentBrodcast --|> NetworkInterface
+    FileTransfer --|> NetworkInterface
+
+    API --|> business.UI.TextInterface
+
+    main.Main *-down- FileTransfer
+    main.Main *-down- ContentBrodcast
+    main.Main *-down- API
+  }
+
+  namespace business.UI.commands{
+    class CmdHelp
+    class CmdAddSong
+    class CmdAddAudioBook
+    class CmdAddAlbum
+    class CmdAddPlaylist
+    class CmdAppendToAlbum
+    class CmdListSongs
+    class CmdListSongsOrdered
+    class CmdListAudioBooks
+    class CmdListAlbums
+    class CmdListPlaylists
+    class CmdDeletePlaylist
+    class CmdSave
+    class CmdStreamSong #C0F0A0
+    class CmdQuit
+  }
+
+  business.UI.Command <|-down- business.UI.commands
+
+  business.UI.TextInterface *-- business.UI.commands.CmdHelp
+  business.UI.commands.CmdHelp *-left- business.UI.commands.CmdAddSong
+  business.UI.commands.CmdAddSong *-left- business.UI.commands.CmdAddAudioBook
+  business.UI.commands.CmdAddAudioBook *-down- business.UI.commands.CmdAddAlbum
+  business.UI.commands.CmdAddAlbum *-right- business.UI.commands.CmdAddPlaylist
+  business.UI.commands.CmdAddPlaylist *-right- business.UI.commands.CmdAppendToAlbum
+  business.UI.commands.CmdAppendToAlbum *-down- business.UI.commands.CmdListSongs
+  business.UI.commands.CmdListSongs *-left- business.UI.commands.CmdListSongsOrdered
+  business.UI.commands.CmdListSongsOrdered *-left- business.UI.commands.CmdListAudioBooks
+  business.UI.commands.CmdListAudioBooks *-down- business.UI.commands.CmdListAlbums
+  business.UI.commands.CmdListAlbums *-right- business.UI.commands.CmdListPlaylists
+  business.UI.commands.CmdListPlaylists *-right- business.UI.commands.CmdDeletePlaylist
+  business.UI.commands.CmdDeletePlaylist *-down- business.UI.commands.CmdSave
+  business.UI.commands.CmdSave *-left- business.UI.commands.CmdStreamSong
+  business.UI.commands.CmdStreamSong *-left- business.UI.commands.CmdQuit
+
+  business.UI.commands.CmdStreamSong *-- business.networkInterface.ContentBrodcast
+
+  business.UI.TextInterface *-left- business.dataStruct.DirectAccess
+
+  business.UI.Command o-- business.UI.Command : nextCommand
+
+  namespace business.dataStruct {
+    namespace elements {
+      class business.dataStruct.elements.Album {
+          {static} + DATEFORMAT : String
+          - artist : String
+          - launchDate : Date
+          - songs : ArrayList<Song>
+          + Album()
+          + addSong()
+          + compareTo()
+          + getArtist()
+          + getLaunchDate()
+          + getLength()
+          + getSongs()
+          + toString()
+      }
+    }
+  }
+
+
+  namespace business.dataStruct {
+    namespace elements {
+      class business.dataStruct.elements.AudioBook {
+          - author : String
+          + AudioBook()
+          + compareTo()
+          + getAuthor()
+          + getCategory()
+          + getLanguage()
+          + toString()
+      }
+    }
+  }
+
+
+  namespace business.dataStruct {
+    namespace elements {
+      class business.dataStruct.elements.Playlist {
+          - musicalElements : ArrayList<MusicalElement>
+          + Playlist()
+          + addElement()
+          + getElements()
+          + toString()
+      }
+    }
+  }
+
+
+  namespace business.dataStruct {
+    namespace elements {
+      class business.dataStruct.elements.Song {
+          - artist : String
+          + Song()
+          + compareTo()
+          + getArtist()
+          + getGenre()
+          + toString()
+      }
+    }
+  }
+
+
+  namespace business.dataStruct {
+    namespace enums {
+      enum Category {
+        Documentary
+        Novel
+        Speech
+        Theater
+        Youth
+      }
+    }
+  }
+
+
+  namespace business.dataStruct {
+    namespace enums {
+      enum Genre {
+        Classic
+        HipHop
+        Jazz
+        Pop
+        Rap
+        Rock
+      }
+    }
+  }
+
+
+  namespace business.dataStruct {
+    namespace enums {
+      enum Language {
+        English
+        French
+        German
+        Italian
+        Spanish
+      }
+    }
+  }
+
+  business.dataStruct.elements.Album .down.|> java.lang.Comparable
+  business.dataStruct.elements.Album -up-|> business.dataStruct.Element
+  business.dataStruct.elements.AudioBook .down.|> java.lang.Comparable
+  business.dataStruct.elements.AudioBook -up-|> business.dataStruct.MusicalElement
+  business.dataStruct.elements.AudioBook *-- business.dataStruct.enums.Category : category
+  business.dataStruct.elements.AudioBook *-- business.dataStruct.enums.Language : language
+  business.dataStruct.elements.Playlist -up-|> business.dataStruct.Element
+  business.dataStruct.elements.Song .down.|> java.lang.Comparable
+  business.dataStruct.elements.Song -up-|> business.dataStruct.MusicalElement
+  business.dataStruct.elements.Song *-- business.dataStruct.enums.Genre : genre
+
+
+  namespace business.dataStruct {
+    class business.dataStruct.DirectAccess {
+        + DirectAccess()
+        + addAlbum()
+        + addAlbum()
+        + addAudioBook()
+        + addAudioBook()
+        + addPlaylist()
+        + addPlaylist()
+        + addSong()
+        + addSong()
+        + addSongToAlbum()
+        + dellPlaylist()
+        + getAlbum()
+        + getAlbums()
+        + getAudioBooks()
+        + getMatchingAlbum()
+        + getPlaylists()
+        + getSongs()
+        - generateId()
+        - lookForIdIn()
+        - lookForIn()
+        - lookForTitleIn()
+    }
+  }
+
+  business.dataStruct.DirectAccess o-- business.dataStruct.elements.Song
+  business.dataStruct.DirectAccess o-- business.dataStruct.elements.AudioBook
+  business.dataStruct.DirectAccess o-- business.dataStruct.elements.Playlist
+  business.dataStruct.DirectAccess o-- business.dataStruct.elements.Album
+
+  namespace business.dataStruct {
+    abstract class business.dataStruct.Element {
+        # id : int
+        # title : String
+        + Element()
+        + getId()
+        + getTitle()
+    }
+  }
+
+
+  namespace business.dataStruct {
+    abstract class business.dataStruct.MusicalElement {
+        # content : String
+        # length : int
+        + MusicalElement()
+        + getContent()
+        + getLength()
+    }
+  }
+
+
+  business.dataStruct.MusicalElement -up-|> business.dataStruct.Element
+
+
+  namespace utils {
+    class utils.Parsing {
+        {static} + split()
+    }
+  }
+
+
+  namespace utils {
+    class utils.TimeFormat {
+        {static} + secToString()
+        {static} - format2Digits()
+    }
+  }
+
+
+  namespace utils {
+    namespace XML {
+      class utils.XML.XMLLoader {
+          + load()
+
+          - loadAlbums()
+          - loadElements()
+          - loadPlaylists()
+      }
+    }
+  }
+
+
+  namespace utils {
+    namespace XML {
+      class utils.XML.XMLSaver {
+          + saveAlbums()
+          + saveElements()
+          + savePlaylist()
+      }
+    }
+  }
+
+
+  namespace utils {
+    namespace XML {
+      abstract class utils.XML.XMLSubtool {
+          + XMLSubtool()
+      }
+    }
+  }
+
+
+  namespace utils {
+    namespace XML {
+      class utils.XML.XMLTool << singleton >>{
+          {static} + ALBUMSFILEPATH : String
+          {static} + ELEMENTSFILEPATH : String
+          {static} + PLAYLISTSFILEPATH : String
+          {static} - docBuilder : DocumentBuilder
+          {static} - loader : XMLLoader
+          {static} - saver : XMLSaver
+          {static} - singleton : XMLTool
+          {static} + getInstance()
+          + getLoaderTool(): LoaderTool
+          + getSaverTool(): SaverTool
+          ~ createXMLDocument(): Document
+          ~ createXMLFile(document Document, path String)
+          ~ parseXMLFile()
+          - XMLTool()
+      }
+    }
+
+    class Logger <<Singleton>> #C0F0A0{
+      - LOGFILEPATH String
+
+      + log(userImput String)
+    }
+
+    business.UI.TextInterface o-- Logger
+  }
+
+
+  utils.XML.XMLLoader -up-|> utils.XML.XMLSubtool
+  utils.XML.XMLSaver -up-|> utils.XML.XMLSubtool
+  utils.XML.XMLSubtool o-- utils.XML.XMLTool : generalTool
+
+  namespace utils {
+    namespace error {
+      class utils.error.ForceQuitException {
+          + ForceQuitException()
+      }
+    }
+  }
+
+
+  namespace utils {
+    namespace error {
+      class utils.error.NoElementFoundException {
+          + NoElementFoundException()
+      }
+    }
+  }
+
+
+  namespace utils {
+    namespace error {
+      class utils.error.TooManyMatchingElementsException {
+          + TooManyMatchingElementsException()
+      }
+    }
+  }
+
+  namespace utils {
+    namespace error {
+      class utils.error.XMLReadException {
+          + XMLReadException()
+      }
+    }
+  }
+
+
+  namespace utils {
+    namespace error {
+      class utils.error.XMLWriteException {
+          + XMLWriteException()
+      }
+    }
+  }
+
+  business.UI.commands.CmdSave *-down- utils.XML.XMLTool
+
+  main.Main *-left- business.UI.CLI
+  main.Main *-- utils.XML.XMLTool
+
+@enduml

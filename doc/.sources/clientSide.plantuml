@@ -1,0 +1,109 @@
+@startuml Overview client side
+
+  namespace main #FF99AA{
+    class main.Main {
+        {static} + main()
+    }
+  }
+
+  namespace business.UI{
+      class business.UI.CLI {
+          - inputRead : Scanner
+
+          + run()
+      }
+
+
+      abstract class business.UI.Command {
+          + attempt(args String, accessToDB RemoteCLI):String
+          + submitToRemote(String fullCommand);
+          {abstract} # doStuff(args String, accessToDB RemoteCLI):String
+          {abstract} # description():String
+          {abstract} # taskParam():String
+      }
+
+    namespace business.UI.commands{
+      class CmdHelp
+      class CmdAddSong{
+        extractMusicDurration(filePath)
+      }
+      class CmdAddAudioBook
+      class CmdAddAlbum
+      class CmdAddPlaylist
+      class CmdAppendToAlbum
+      class CmdListSongs
+      class CmdListSongsOrdered
+      class CmdListAudioBooks
+      class CmdListAlbums
+      class CmdListPlaylists
+      class CmdDeletePlaylist
+      class CmdPlaySong #C0F0A0
+      class CmdQuit
+    }
+  }
+
+  business.UI.Command <|-down- business.UI.commands
+
+  business.UI.CLI *-- business.UI.commands.CmdHelp
+  business.UI.commands.CmdHelp *-left- business.UI.commands.CmdAddSong
+  business.UI.commands.CmdAddSong *-left- business.UI.commands.CmdAddAudioBook
+  business.UI.commands.CmdAddAudioBook *-left- business.UI.commands.CmdAddAlbum
+  business.UI.commands.CmdAddAlbum *-down- business.UI.commands.CmdAddPlaylist
+  business.UI.commands.CmdAddPlaylist *-right- business.UI.commands.CmdAppendToAlbum
+  business.UI.commands.CmdAppendToAlbum *-right- business.UI.commands.CmdListSongs
+  business.UI.commands.CmdListSongs *-down- business.UI.commands.CmdListSongsOrdered
+  business.UI.commands.CmdListSongsOrdered *-left- business.UI.commands.CmdListAudioBooks
+  business.UI.commands.CmdListAudioBooks *-left- business.UI.commands.CmdListAlbums
+  business.UI.commands.CmdListAlbums *-down- business.UI.commands.CmdListPlaylists
+  business.UI.commands.CmdListPlaylists *-right- business.UI.commands.CmdDeletePlaylist
+  business.UI.commands.CmdDeletePlaylist *-right- business.UI.commands.CmdPlaySong
+  business.UI.commands.CmdPlaySong *-right- business.UI.commands.CmdQuit
+
+
+  namespace business.networkInterface #E0FFE0{
+    abstract class NetworkInterface #C0F0A0{
+      - port: int
+      + connect()
+    }
+    note left of NetworkInterface::connect
+      I still don't know what will actualy be usefull
+    end note
+
+    class RemoteCLI #C0F0A0{
+      + submitCommand(String command):String
+    }
+    note left of RemoteCLI::submitCommand
+      we input the full command
+      (like a user would do with small diferences)
+      and then the function will wait and
+      return the server's answer
+    end note
+
+    class MusicPlayer #C0F0A0{
+    }
+    note left of MusicPlayer
+      is forked by the main as an independent listener,
+      play anything brodcasted on the port
+    end note
+
+    main.Main *-- business.networkInterface.MusicPlayer
+
+    class FileTransfer #C0F0A0{
+      + submitFile(String filePath)
+    }
+
+
+    RemoteCLI --|> NetworkInterface
+    MusicPlayer --|> NetworkInterface
+    FileTransfer --|> NetworkInterface
+  }
+
+
+  business.UI.CLI *-- business.networkInterface.RemoteCLI
+  business.UI.commands.CmdAddSong *-- business.networkInterface.FileTransfer
+
+  business.UI.Command o-- business.UI.Command : nextCommand
+
+  main.Main *-- business.UI.CLI
+
+@enduml
