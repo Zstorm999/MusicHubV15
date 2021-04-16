@@ -2,8 +2,8 @@ package business.dataStruct.elements;
 
 import business.dataStruct.Element;
 import business.dataStruct.MusicalElement;
-import business.dataStruct.enums.Language;
 import business.dataStruct.enums.Category;
+import business.dataStruct.enums.Language;
 import utils.TimeFormat;
 
 /**

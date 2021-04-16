@@ -5,11 +5,12 @@ import business.dataStruct.elements.Album;
 import business.dataStruct.elements.AudioBook;
 import business.dataStruct.elements.Playlist;
 import business.dataStruct.elements.Song;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import utils.error.XMLWriteException;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 
 /**
  * @author CLEMENT Aimeric

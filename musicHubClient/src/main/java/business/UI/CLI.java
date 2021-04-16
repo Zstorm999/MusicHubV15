@@ -46,7 +46,7 @@ public class CLI {
         this.inputRead= new Scanner(System.in);
         this.dataAccess= directAccess;
         this.commandArray=
-                new CmdHelp(                                                    /*CmdHelp needs to be first has it simply recuvively call the toString of the folowing commands*/
+                new CmdHelp(                                                    /*CmdHelp needs to be first has it simply recursively call the toString of the following commands*/
                 new CmdAddSong(
                 new CmdAddAlbum(
                 new CmdAppendToAlbum(

@@ -7,10 +7,11 @@ import business.dataStruct.elements.Song;
 import business.dataStruct.enums.Category;
 import business.dataStruct.enums.Genre;
 import business.dataStruct.enums.Language;
-import java.util.ArrayList;
-import java.util.Date;
 import utils.error.NoElementFoundException;
 import utils.error.TooManyMatchingElementsException;
+
+import java.util.ArrayList;
+import java.util.Date;
 
 
 /**
@@ -40,6 +41,15 @@ public class DirectAccess{
     
     public ArrayList<Album> getAlbums(){return this.albums; }
     public ArrayList<Song> getSongs(){return this.songs; }
+    public Song getSong(String title){
+        //Looking for the particular title matching with the parameters
+        for (Song song:this.songs) {
+            if (song.getTitle().equals(title)){
+                return song;
+            }
+        }
+        return null;
+    }
     public ArrayList<Playlist> getPlaylists(){return this.playlists; }
     public ArrayList<AudioBook> getAudioBooks(){return this.audioBooks; }
     
@@ -99,10 +109,10 @@ public class DirectAccess{
      * @param playlistTitle
      * @param elements is the list of every elements, defined by their name or their id
      * @return the id of the newly created playlist
-     * @throws utils.error.NoElementFoundException when an element of the
+     * @throws NoElementFoundException when an element of the
      * playlist do not exist, since it is throw in a for each, only the first
      * invalid element is submited back trough the raised exception.
-     * @throws utils.error.TooManyMatchingElementsException when there is a
+     * @throws TooManyMatchingElementsException when there is a
      * conflict with elements sharing the same name, since it is throw in a
      * for each, only the first invalid element is submited
      * back trough the raised exception.

@@ -1,10 +1,11 @@
 package business.dataStruct.elements;
 
 import business.dataStruct.Element;
+import utils.TimeFormat;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import utils.TimeFormat;
 
 /**
  * 

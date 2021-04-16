@@ -1,8 +1,10 @@
 package utils.XML;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import org.w3c.dom.Document;
+import org.w3c.dom.NodeList;
+import utils.error.XMLReadException;
+import utils.error.XMLWriteException;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -11,10 +13,9 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
-import org.w3c.dom.Document;
-import org.w3c.dom.NodeList;
-import utils.error.XMLReadException;
-import utils.error.XMLWriteException;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 /**
  * XMLTool is a singleton, constraining it to be instanciated no more than once.
@@ -34,9 +35,9 @@ public class XMLTool{
     private static XMLLoader loader;
     private static XMLSaver saver;
     
-    public static final String ALBUMSFILEPATH= "./musicHubClient/files/albums.xml";
-    public static final String ELEMENTSFILEPATH= "./musicHubClient/files/elements.xml";
-    public static final String PLAYLISTSFILEPATH= "./musicHubClient/files/playlists.xml";
+    public static final String ALBUMSFILEPATH= "./musicHubServer/files/albums.xml";
+    public static final String ELEMENTSFILEPATH= "./musicHubServer/files/elements.xml";
+    public static final String PLAYLISTSFILEPATH= "./musicHubServer/files/playlists.xml";
     
     private XMLTool(){
         try{
@@ -50,7 +51,7 @@ public class XMLTool{
         XMLTool.saver= new XMLSaver(this);
     }
     
-    public static XMLTool getInstance(){return XMLTool.singleton; }
+    public static XMLTool getInstance(){ return XMLTool.singleton; }
     
     public XMLLoader getLoaderTool(){return XMLTool.loader; }
     public XMLSaver getSaverTool(){return XMLTool.saver; }

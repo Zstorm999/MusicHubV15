@@ -2,17 +2,18 @@ package utils.XML;
 
 import business.dataStruct.DirectAccess;
 import business.dataStruct.elements.Album;
-import java.io.FileNotFoundException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import utils.error.NoElementFoundException;
 import utils.error.TooManyMatchingElementsException;
 import utils.error.XMLReadException;
+
+import java.io.FileNotFoundException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 
 /**
  *

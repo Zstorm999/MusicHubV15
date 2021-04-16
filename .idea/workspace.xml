@@ -3,21 +3,67 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="af57a237-ff99-4309-9254-21d640e8c05b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/musicHubClient/src/main/java/business/UI/commands/CmdPlaySong.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/musicHubClient/src/main/java/business/networkInterface/FileTransfer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/musicHubClient/musicHubV2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/musicHubClient/musicHubV2.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/musicHubClient/src/main/java/business/UI/CLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/musicHubClient/src/main/java/business/UI/CLI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/musicHubClient/src/main/java/business/dataStruct/DirectAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/musicHubClient/src/main/java/business/dataStruct/DirectAccess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/musicHubClient/src/main/java/business/dataStruct/elements/Album.java" beforeDir="false" afterPath="$PROJECT_DIR$/musicHubClient/src/main/java/business/dataStruct/elements/Album.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/musicHubClient/src/main/java/business/dataStruct/elements/AudioBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/musicHubClient/src/main/java/business/dataStruct/elements/AudioBook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/musicHubClient/src/main/java/utils/XML/XMLLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/musicHubClient/src/main/java/utils/XML/XMLLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/musicHubClient/src/main/java/utils/XML/XMLSaver.java" beforeDir="false" afterPath="$PROJECT_DIR$/musicHubClient/src/main/java/utils/XML/XMLSaver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/musicHubClient/src/main/java/utils/XML/XMLTool.java" beforeDir="false" afterPath="$PROJECT_DIR$/musicHubClient/src/main/java/utils/XML/XMLTool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/musicHubServer/src/main/java/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/musicHubServer/src/main/java/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/musicHubServer/src/main/java/utils/XML/XMLTool.java" beforeDir="false" afterPath="$PROJECT_DIR$/musicHubServer/src/main/java/utils/XML/XMLTool.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/musicHubServer/musicHubV2 (1).iml" beforeDir="false" afterPath="$PROJECT_DIR$/musicHubServer/musicHubV2 (1).iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2020.2.3\plugins\maven\lib\maven3" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="ProjectId" id="1r2VFh5dSqRtns7KNiGkN3xSyXi" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -25,9 +71,16 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/musicHubClient" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/musicHubClient/src/main/java/utils" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Cour\Java\musicHub repo\MusicHubV15\musicHubClient\src\main\java\utils" />
+      <recent name="D:\Cour\Java\musicHub repo\MusicHubV15\musicHubClient\src\main\java\business" />
+    </key>
   </component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -81,8 +134,8 @@
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
-      <item itemvalue="Maven.Unnamed" />
       <item itemvalue="Application.Main (1)" />
+      <item itemvalue="Maven.Unnamed" />
     </list>
     <recent_temporary>
       <list>
@@ -101,5 +154,30 @@
       <updated>1618174072251</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="285" y="231" key="#com.intellij.ide.util.MemberChooser" timestamp="1618563577744">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="285" y="231" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1050@0.0.1920.1050" timestamp="1618563577744" />
+    <state x="583" y="449" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1618562991540">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="583" y="449" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1618562991540" />
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1618567378195">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1618567378195" />
   </component>
 </project>
